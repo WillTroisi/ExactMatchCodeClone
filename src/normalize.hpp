@@ -1,8 +1,11 @@
-#include <iostream>
-#include <string>
-#include <fstream>
+#pragma once
 
-std::string removeComments(std::string& line) {
+#include <string>
+#include <vector>
+#include <sstream>
+#include <istream>
+
+inline std::string removeCommentsHeaders(const std::string& line) {
     std::string result;
     int i = 0;
 
@@ -10,18 +13,20 @@ std::string removeComments(std::string& line) {
         //For single-line comments
         if(i + 1 < line.size() && line[i] == '/' && line[i+1] == '/')
             break;
-        
+        else if( i + 1 < line.size() && line[i] == '#')
+            break;
         result += line[i];
         i++;
         
     }
+
+    return result;
 }
 
-std::vector<std::string> normalize(std::istream& in)
+inline std::vector<std::string> normalize(std::istream& in)
 {
     std::vector<std::string> words;
     std::string line;
-    std::istream_iterator<std::string> it(in), end;
     bool blockComment = false;
 
     while(std::getline(in, line)) {
@@ -37,20 +42,23 @@ std::vector<std::string> normalize(std::istream& in)
                 blockComment = false;
                 i += 2;
             } else {
+                if (!blockComment) {
+                    cleaned += line[i];
+                }
                 i++; //In this case, you would be inside of the block so just keep iterating.
             }
         }
 
+        cleaned = removeCommentsHeaders(cleaned); //Remove the single line comments
 
-        cleaned = removeComments(cleaned); //Remove the single line comments
-
+        std::istringstream stream(cleaned);
+        std::string word;
 
         //Returns a vector with removed whitespace
-        while (it != end) {
-            words.push_back(*it);
-            ++it;
+        while (stream >> word) {
+            words.push_back(word);
         }
-
-        return words;
     }
+
+    return words;
 }
