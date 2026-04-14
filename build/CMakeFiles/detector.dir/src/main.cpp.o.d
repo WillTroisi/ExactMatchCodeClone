@@ -977,4 +977,6 @@ CMakeFiles/detector.dir/src/main.cpp.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__filesystem/recursive_directory_iterator.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__filesystem/u8path.h \
   /Users/willtroisi/Coding\ Projects/Senior\ Project/src/normalize.hpp \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/sstream
+  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/sstream \
+  /Users/willtroisi/Coding\ Projects/Senior\ Project/src/parser.hpp \
+  /Users/willtroisi/Coding\ Projects/Senior\ Project/src/detector.hpp
