@@ -5,7 +5,7 @@
 #include <sstream>
 #include <istream>
 
-inline std::string removeCommentsHeaders(const std::string& line) {
+std::string removeCommentsHeaders(const std::string& line) {
     std::string result;
     int i = 0;
 
@@ -23,7 +23,7 @@ inline std::string removeCommentsHeaders(const std::string& line) {
     return result;
 }
 
-inline std::vector<std::string> normalize(std::istream& in)
+std::vector<std::string> normalize(std::istream& in)
 {
     std::vector<std::string> words;
     std::string line;
