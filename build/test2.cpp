@@ -6,6 +6,7 @@ int main() {
     std::cout << x << std::endl;
 }
 
-void diff() {
+int diff() {
     std::cout << "Hi" << std::endl;
+    int count;
 }

@@ -45,7 +45,7 @@ std::vector<std::string> normalize(std::istream& in)
                 if (!blockComment) {
                     cleaned += line[i];
                 }
-                i++; //In this case, you would be inside of the block so just keep iterating.
+                i++;
             }
         }
 

@@ -24,9 +24,6 @@ int main(int argc, char* argv[])
     std::vector<std::string> tokens1 = normalize(file1);
     std::vector<std::string> tokens2 = normalize(file2);
 
-    std::cout << "Tokens1 size: " << tokens1.size() << "\n";
-    std::cout << "Tokens2 size: " << tokens2.size() << "\n";
-
     // Step 2: parse functions
     std::vector<Function> funcs1 = parseFunctions(tokens1);
     std::vector<Function> funcs2 = parseFunctions(tokens2);
